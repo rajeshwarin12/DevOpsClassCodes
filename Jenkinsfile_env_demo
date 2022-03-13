@@ -14,9 +14,9 @@
       echo scmVars.GIT_BRANCH.split('/')
       branch=scmVars.GIT_BRANCH.split('/')[1]
       if( branch != 'master'){
-        sh 'echo this is not master'
-      }else if( branch == 'master') {
-        sh 'echo this is master branch do your operations here'
+        echo 'this is an err'
+      }else if( branch = 'master') {
+        echo 'this is master'
       }
       
       
