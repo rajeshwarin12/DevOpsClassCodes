@@ -12,12 +12,6 @@
     }
     stage('test scope') {
       echo scmVars.GIT_BRANCH.split('/')
-      branch=scmVars.GIT_BRANCH.split('/')
-      if( branch != 'master'){
-        echo branch
-      }else if( branch == 'master') {
-        echo branch
-      }
       
       
     }
