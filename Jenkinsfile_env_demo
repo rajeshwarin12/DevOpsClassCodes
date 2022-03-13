@@ -15,7 +15,7 @@
       branch=scmVars.GIT_BRANCH.split('/')[1]
       if( branch != 'master'){
         echo "this is not master"
-      }else if {
+      }else if( branch == 'master') {
       echo "this is master branch do your operations here"
       }
       
