@@ -23,6 +23,7 @@ pipeline{
 		 echo 'cloning..'
                  git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
                  sh "echo $GIT_BRANCH"
+		 sh "echo $BRANCH_NAME"
               }
           }
  /*         stage('Compile'){
