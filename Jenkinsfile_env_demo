@@ -14,6 +14,7 @@ pipeline{
     TF_IN_AUTOMATION = 'true'
     AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
     AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
+    GIT_BRANCH1 = "${GIT_BRANCH}.split('/')[1]
   //  TERRAFORM_HOME = tool 'terraform'
   }
       stages{
@@ -23,7 +24,8 @@ pipeline{
 		 echo 'cloning..'
                  git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
                  sh "echo $GIT_BRANCH"
-		 sh "echo $BRANCH_NAME"
+		 sh "echo $GIT_BRANCH1"
+		
               }
           }
  /*         stage('Compile'){
