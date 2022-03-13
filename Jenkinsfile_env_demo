@@ -11,6 +11,14 @@
         // GIT_URL=https://stash.someworkplace.com/scm/poc/api-sample.git
     }
     stage('test scope') {
-      echo scmVars.GIT_BRANCH
+      echo scmVars.GIT_BRANCH.split('/')
+      branch=scmVars.GIT_BRANCH.split('/')[1]
+      if( branch != 'master'){
+        echo "this is not master"
+      }else if {
+      echo "this is master branch do your operations here"
+      }
+      
+      
     }
   }
