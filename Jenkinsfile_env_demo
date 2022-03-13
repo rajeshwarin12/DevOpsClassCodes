@@ -1,79 +1,16 @@
-pipeline{
-    tools{
-        jdk 'myjava'
-        maven 'mymaven'
+  def scmVars
+
+  node {
+    stage('Clone source code') {
+        scmVars = checkout scm
+        // scmVars contains the following values
+        // GIT_BRANCH=origin/mybranch
+        // GIT_COMMIT=fc8279a107ebaf806f2e310fce15a7a54238eb71
+        // GIT_PREVIOUS_COMMIT=6f2e319a1fc82707ebaf800fce15a7a54238eb71
+        // GIT_PREVIOUS_SUCCESSFUL_COMMIT=310fce159a1fc82707ebaf806f2ea7a54238eb71
+        // GIT_URL=https://stash.someworkplace.com/scm/poc/api-sample.git
     }
-	//agent {label 'linux_slave'}
-	agent any
-  parameters {
-    password (name: 'AWS_ACCESS_KEY_ID')
-    password (name: 'AWS_SECRET_ACCESS_KEY')
+    stage('test scope') {
+      echo scmVars.GIT_BRANCH
+    }
   }
-  environment {
-    TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
-    TF_IN_AUTOMATION = 'true'
-    AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
-    AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
-    GIT_BRANCH1 = "${GIT_BRANCH}.split('/')[1]
-  //  TERRAFORM_HOME = tool 'terraform'
-  }
-      stages{
-           stage('Checkout'){
-	    
-               steps{
-		 echo 'cloning..'
-                 git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
-                 sh "echo $GIT_BRANCH"
-		 sh "echo $GIT_BRANCH1"
-		
-              }
-          }
- /*         stage('Compile'){
-             
-              steps{
-                  echo 'compiling..'
-                  sh 'mvn compile'
-	      }
-          }
-          stage('CodeReview'){
-		  
-              steps{
-		    
-		  echo 'codeReview'
-                  sh 'mvn pmd:pmd'
-              }
-          }
-           stage('UnitTest'){
-		  
-              steps{
-	         
-                  sh 'mvn test'
-              }
-               post {
-               success {
-                   junit 'target/surefire-reports/*.xml'
-               }
-           }	
-          }
-           stage('MetricCheck'){
-              
-              steps{
-                  sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
-              }
-               post {
-               success {
-	           cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'target/site/cobertura/coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false                  
-               }
-           }		
-          }
-          stage('Package'){
-		  
-              steps{
-		  
-                  sh 'mvn package'
-              }
-          } */
-	     
-          
-      } 
-}
