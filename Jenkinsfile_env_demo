@@ -69,8 +69,8 @@ pipeline{
 		  
                   sh 'mvn package'
               }
-          }
+          } */
 	     
           
-      } */
+      } 
 }
