@@ -12,6 +12,8 @@
     }
     stage('test scope') {
       echo scmVars.GIT_BRANCH
+      branch1=scmVars.GIT_BRANCH.split('/')[1]
+      echo branch1
       
       
     }
