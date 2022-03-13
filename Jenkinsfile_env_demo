@@ -14,12 +14,12 @@
       echo scmVars.GIT_BRANCH
       branch1=scmVars.GIT_BRANCH.split('/')[1]
       echo branch1
-      if (branch1 == 'master)
+      if (branch1 == 'master')
       {
         echo "this is master branch"
         var1="value1"
         echo var1
-      }elseif(branch1 != 'master){
+      }elseif(branch1 != 'master'){
         echo "this is not master branch"
         var1="value2"
         echo var1
