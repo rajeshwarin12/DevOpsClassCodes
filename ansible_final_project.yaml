@@ -27,15 +27,6 @@
   - name: remove docker images form ansible server
     command: docker rmi myproject:CICD edu123/myproject:CICD
     ignore_errors: yes
-
----
-- hosts: localhost
-  become: true
-  become_user: root
-
-  tasks:
-  - name: Start docker
-    service: name=docker state=started
-
+    
   - name: Do deployment to kuberetes Prod
     command: kubectl apply -f https://raw.githubusercontent.com/devops-learner01012022/DevOps_ClassNotes/master/CICD%20pipeline/kubedeployment.yml
