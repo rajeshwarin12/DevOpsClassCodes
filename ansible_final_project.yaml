@@ -20,7 +20,10 @@
 
   - name: push image on to dockerhub
     command: docker push edu123/myproject:CICD
-
+    
+  - name: Do deployment in Docker Swarm cluster
+    command: docker service create --name mysvc --replicas 1 -p 8282:80 edu123/myproject:CICD
+    
   - name: remove docker images form ansible server
     command: docker rmi myproject:CICD edu123/myproject:CICD
     ignore_errors: yes
