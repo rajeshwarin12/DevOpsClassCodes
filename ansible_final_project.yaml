@@ -22,7 +22,7 @@
     command: docker push edu123/myproject:CICD
     
 #  - name: Do deployment in Docker Swarm cluster
-#    command: docker service create --name mysvc-ansible --replicas 1 -p 8282:80 edu123/myproject:CICD
+#    command: docker service create --name mysvc-ansible --replicas 1 -p 8282:8080 edu123/myproject:CICD
     
 #  - name: remove docker images form ansible server
 #    command: docker rmi myproject:CICD edu123/myproject:CICD
