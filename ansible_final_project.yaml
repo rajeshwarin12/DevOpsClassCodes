@@ -38,4 +38,4 @@
     service: name=docker state=started
 
   - name: Do deployment to kuberetes Prod
-    command: kubectl apply -f https://raw.githubusercontent.com/devops-learner01012022/DevOps_ClassNotes/master/CICD pipeline/kubedeployment.yml
+    command: kubectl apply -f https://raw.githubusercontent.com/devops-learner01012022/DevOps_ClassNotes/master/CICD%20pipeline/kubedeployment.yml
