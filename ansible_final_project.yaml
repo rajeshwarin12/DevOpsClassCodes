@@ -21,12 +21,12 @@
   - name: push image on to dockerhub
     command: docker push edu123/myproject:CICD
     
-#  - name: Do deployment in Docker Swarm cluster
-#    command: docker service create --name mysvc-ansible --replicas 1 -p 8282:8080 edu123/myproject:CICD
+  - name: Do deployment in Docker Swarm cluster
+    command: docker service create --name mysvc-ansible --replicas 1 -p 8282:8080 edu123/myproject:CICD
     
-#  - name: remove docker images form ansible server
-#    command: docker rmi myproject:CICD edu123/myproject:CICD
-#    ignore_errors: yes
+  - name: remove docker images form ansible server
+    command: docker rmi myproject:CICD edu123/myproject:CICD
+    ignore_errors: yes
     
   - name: Do deployment to kuberetes Prod
     command: kubectl apply -f https://raw.githubusercontent.com/devops-learner01012022/DevOps_ClassNotes/master/CICD%20pipeline/kubedeployment.yml
